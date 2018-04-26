@@ -8,13 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    @IBOutlet var newListTableView: UITableView!
+class DetailedNewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.newListTableView.backgroundColor = UIColor.red
         // Do any additional setup after loading the view, typically from a nib.
     }
 
