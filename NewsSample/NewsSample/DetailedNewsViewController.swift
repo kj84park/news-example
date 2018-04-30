@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailedNewsViewController: UIViewController {
     
+    var detailedNewsLink : String?
+    
+    @IBOutlet var webView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.view.backgroundColor = .white
+        
+        if let link = detailedNewsLink {
+            let url: URL = URL(string: link)!
+            webView!.loadRequest(URLRequest(url: url))
+        }
+
     }
 
     override func didReceiveMemoryWarning() {

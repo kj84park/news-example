@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zV0-64-OBk">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,18 +16,56 @@
             <objects>
                 <tableViewController id="cxV-XN-f6Y" customClass="NewsTableViewController" customModule="NewsSample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZIu-uq-GGi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" id="noc-cp-7uR">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="80" id="noc-cp-7uR" customClass="NewsTableViewCell" customModule="NewsSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="noc-cp-7uR" id="rrL-cS-7FP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECS-Oi-zdx">
+                                            <rect key="frame" x="112" y="34" width="294" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="Oca-bb-qho"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbs-yP-bzp">
+                                            <rect key="frame" x="110" y="5" width="296" height="26"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dTW-az-rkg">
+                                            <rect key="frame" x="12" y="5" width="90" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="VXc-d2-g1i"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dTW-az-rkg" firstAttribute="bottom" secondItem="ECS-Oi-zdx" secondAttribute="bottom" id="408-xH-QF5"/>
+                                        <constraint firstItem="dTW-az-rkg" firstAttribute="bottom" secondItem="rrL-cS-7FP" secondAttribute="bottomMargin" id="8lp-5H-Hd9"/>
+                                        <constraint firstItem="ECS-Oi-zdx" firstAttribute="leading" secondItem="dTW-az-rkg" secondAttribute="trailing" constant="10" id="8oh-LT-cag"/>
+                                        <constraint firstItem="dTW-az-rkg" firstAttribute="leading" secondItem="rrL-cS-7FP" secondAttribute="leadingMargin" constant="-8" id="9vn-jW-7M4"/>
+                                        <constraint firstItem="Fbs-yP-bzp" firstAttribute="trailing" secondItem="ECS-Oi-zdx" secondAttribute="trailing" id="Epj-mE-3fs"/>
+                                        <constraint firstItem="ECS-Oi-zdx" firstAttribute="top" secondItem="Fbs-yP-bzp" secondAttribute="bottom" constant="3" id="H8b-bI-auQ"/>
+                                        <constraint firstItem="dTW-az-rkg" firstAttribute="top" secondItem="Fbs-yP-bzp" secondAttribute="top" id="ZQp-db-sh5"/>
+                                        <constraint firstItem="Fbs-yP-bzp" firstAttribute="leading" secondItem="dTW-az-rkg" secondAttribute="trailing" constant="8" symbolic="YES" id="fBA-86-l4t"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Fbs-yP-bzp" secondAttribute="trailing" constant="-12" id="gca-UW-NHV"/>
+                                        <constraint firstItem="dTW-az-rkg" firstAttribute="top" secondItem="rrL-cS-7FP" secondAttribute="topMargin" constant="-6" id="p9W-Kp-X9x"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="newsContentLabel" destination="ECS-Oi-zdx" id="d2h-b6-tie"/>
+                                    <outlet property="newsImageLabel" destination="dTW-az-rkg" id="Bhu-FG-ROg"/>
+                                    <outlet property="newsTitleLabel" destination="Fbs-yP-bzp" id="5PA-qs-abT"/>
                                     <segue destination="1qq-gn-oPJ" kind="show" identifier="newsDetail" id="7uR-0D-WVq"/>
                                 </connections>
                             </tableViewCell>
@@ -43,29 +82,33 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsS-jU-AQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623" y="144"/>
+            <point key="canvasLocation" x="1620.289855072464" y="143.47826086956522"/>
         </scene>
         <!--Detailed News View Controller-->
         <scene sceneID="zyU-J1-GMO">
             <objects>
                 <viewController id="1qq-gn-oPJ" customClass="DetailedNewsViewController" customModule="NewsSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xEB-eq-EEZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K0u-aP-oFM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PY-ny-jP7">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v9f-xc-Djy" firstAttribute="bottom" secondItem="0PY-ny-jP7" secondAttribute="bottom" id="2A0-Ey-Nyi"/>
+                            <constraint firstItem="0PY-ny-jP7" firstAttribute="trailing" secondItem="v9f-xc-Djy" secondAttribute="trailing" id="4RS-fL-4Ik"/>
+                            <constraint firstItem="0PY-ny-jP7" firstAttribute="leading" secondItem="v9f-xc-Djy" secondAttribute="leading" id="WPg-cD-z3K"/>
+                            <constraint firstItem="0PY-ny-jP7" firstAttribute="top" secondItem="v9f-xc-Djy" secondAttribute="top" id="tRJ-Uf-z8y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="v9f-xc-Djy"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="0PY-ny-jP7" id="Swc-HG-vvP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0J-Ti-bZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,7 +120,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zV0-64-OBk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fXF-YY-VpJ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
