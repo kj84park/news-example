@@ -9,7 +9,6 @@
 import UIKit
 import Moya
 
-
 struct NewsInfo {
     let title: String
     let imageLink: String
@@ -17,33 +16,46 @@ struct NewsInfo {
 }
 let provider = MoyaProvider<NewsAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
 
-class NewsTableViewController: UITableViewController {
-    
+class NewsTableViewController: UITableViewController , UITabBarControllerDelegate{
+    var category = "sports"
     var newsInfos  = [Article]()
     @IBOutlet var newsListView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.delegate = self
         getNews()
     }
     
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        if tabBarIndex == 0{
+            category = "sports"
+            getNews()
+        } else if tabBarIndex == 1{
+            category = "business"
+            getNews()
+        }
+    }
+    
+    
     func getNews(){
-        provider.request(.getNewsInfo("Kr", "business", "04871c167cfb4a3c9c18b9d170d8ba7f")) { result in
+        provider.request(.getNewsInfo("Kr", category, "04871c167cfb4a3c9c18b9d170d8ba7f")) { result in
             
             switch result {
             case .success (let response) :
                 do {
                     let result = try! JSONDecoder().decode(NewsResponse.self, from: response.mapString().data(using: .utf8)!)
-                    
                     if let articles = result.articles{
                         self.newsInfos = articles
+                        print(articles)
+                        print("##########")
                     }
-                    
                     self.newsListView.reloadData()
                 } catch MoyaError.statusCode(let errorResponse){
                     print(errorResponse)
                 } catch {
-                    
+                    print("exception")
                 }
                 
             case .failure (let error):
@@ -80,5 +92,4 @@ class NewsTableViewController: UITableViewController {
             destinationViewController.detailedNewsLink = self.newsInfos[(indexPath?.row)!].url
         }
     }
-    
 }

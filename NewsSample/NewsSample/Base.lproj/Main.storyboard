@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zV0-64-OBk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t4m-In-1h7">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="aco-VF-LAb">
+            <objects>
+                <tabBarController id="t4m-In-1h7" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vax-Hd-lZc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zV0-64-OBk" kind="relationship" relationship="viewControllers" id="2Eh-CV-4Ts"/>
+                        <segue destination="FDy-id-gMw" kind="relationship" relationship="viewControllers" id="Y8f-EP-gfQ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mIL-Z8-Q7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1664" y="-227"/>
+        </scene>
         <!--News Table View Controller-->
         <scene sceneID="yek-Gt-GxE">
             <objects>
@@ -83,7 +101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsS-jU-AQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1620.289855072464" y="143.47826086956522"/>
+            <point key="canvasLocation" x="87" y="-237"/>
         </scene>
         <!--Detailed News View Controller-->
         <scene sceneID="zyU-J1-GMO">
@@ -94,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PY-ny-jP7">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -113,13 +131,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0J-Ti-bZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2399" y="144"/>
+            <point key="canvasLocation" x="2657" y="144"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Sports-->
         <scene sceneID="18b-c0-rQZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zV0-64-OBk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Sports" id="yob-bm-1Uf"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fXF-YY-VpJ">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -131,7 +151,27 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NmA-h6-RSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="144.3778110944528"/>
+            <point key="canvasLocation" x="-791" y="-227"/>
+        </scene>
+        <!--Business-->
+        <scene sceneID="6xN-8W-fi5">
+            <objects>
+                <navigationController id="FDy-id-gMw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Business" id="GVA-gQ-0Cn"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dK7-GH-Zjh">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cxV-XN-f6Y" kind="relationship" relationship="rootViewController" id="xLx-m9-cCI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WuJ-fN-yKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791" y="533"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xLx-m9-cCI"/>
+    </inferredMetricsTieBreakers>
 </document>

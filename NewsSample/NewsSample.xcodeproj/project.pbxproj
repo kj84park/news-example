@@ -73,6 +73,16 @@
 			path = Dto;
 			sourceTree = "<group>";
 		};
+		044523C3209771B80098BB63 /* Ui */ = {
+			isa = PBXGroup;
+			children = (
+				04B186B5208E1EE700CB5A2F /* DetailedNewsViewController.swift */,
+				045DE81D209219C1000CFE41 /* NewsTableViewController.swift */,
+				044523B82096DA230098BB63 /* NewsTableViewCell.swift */,
+			);
+			path = Ui;
+			sourceTree = "<group>";
+		};
 		045CBF442096C75500DA633C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,15 +120,13 @@
 		04B186B2208E1EE700CB5A2F /* NewsSample */ = {
 			isa = PBXGroup;
 			children = (
+				044523C3209771B80098BB63 /* Ui */,
 				044523BA2096F79B0098BB63 /* Network */,
 				04B186B3208E1EE700CB5A2F /* AppDelegate.swift */,
-				04B186B5208E1EE700CB5A2F /* DetailedNewsViewController.swift */,
-				045DE81D209219C1000CFE41 /* NewsTableViewController.swift */,
 				04B186B7208E1EE700CB5A2F /* Main.storyboard */,
 				04B186BA208E1EE700CB5A2F /* Assets.xcassets */,
 				04B186BC208E1EE700CB5A2F /* LaunchScreen.storyboard */,
 				04B186BF208E1EE700CB5A2F /* Info.plist */,
-				044523B82096DA230098BB63 /* NewsTableViewCell.swift */,
 			);
 			path = NewsSample;
 			sourceTree = "<group>";
