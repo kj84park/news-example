@@ -23,6 +23,7 @@ class NewsTableViewCell: UITableViewCell {
         if let imageLink = info.urlToImage{
             self.newsImageLabel!.kf.setImage(with: URL(string: imageLink))
         }
+
         self.newsTitleLabel.text = info.title
         self.newsContentLabel.text = info.description
     }
