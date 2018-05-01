@@ -19,6 +19,10 @@ let provider = MoyaProvider<NewsAPI>(plugins: [NetworkLoggerPlugin(verbose: true
 class NewsTableViewController: UITableViewController , UITabBarControllerDelegate{
     var category = "sports"
     var newsInfos  = [Article]()
+    
+    var sportInfos : [Article]?
+    var businessInfos : [Article]?
+    
     @IBOutlet var newsListView: UITableView!
     
     override func viewDidLoad() {
@@ -39,30 +43,53 @@ class NewsTableViewController: UITableViewController , UITabBarControllerDelegat
     }
     
     
-    func getNews(){
-        provider.request(.getNewsInfo("Kr", category, "04871c167cfb4a3c9c18b9d170d8ba7f")) { result in
-            
+    fileprivate func getNewsInfoFromServer() -> Cancellable {
+        return provider.request(.getNewsInfo("Kr", category, "04871c167cfb4a3c9c18b9d170d8ba7f")) { result in
             switch result {
-            case .success (let response) :
-                do {
-                    let result = try! JSONDecoder().decode(NewsResponse.self, from: response.mapString().data(using: .utf8)!)
-                    if let articles = result.articles{
-                        self.newsInfos = articles
-                        print(articles)
-                        print("##########")
+                case .success (let response) :
+                    do {
+                        let result = try! JSONDecoder().decode(NewsResponse.self, from: response.mapString().data(using: .utf8)!)
+                        if let articles = result.articles{
+                            
+                            if self.category == "sports"{
+                                self.sportInfos = articles
+                                self.newsInfos = articles
+                            } else if self.category == "business" {
+                                self.businessInfos = articles
+                                self.newsInfos = articles
+                            }
+                        }
+                        self.newsListView.reloadData()
+                    } catch MoyaError.statusCode(let errorResponse){
+                        print(errorResponse)
+                    } catch {
+                        print("exception")
                     }
-                    self.newsListView.reloadData()
-                } catch MoyaError.statusCode(let errorResponse){
-                    print(errorResponse)
-                } catch {
-                    print("exception")
-                }
-                
-            case .failure (let error):
-                print(error)
-                
+                case .failure (let error):
+                    print(error)
             }
         }
+    }
+    
+    func getNews(){
+        if category == "sports"{
+            if sportInfos != nil {
+                newsInfos = sportInfos!
+                newsListView.reloadData()
+            } else {
+                getNewsInfoFromServer()
+            }
+            
+        } else if category == "business" {
+            if businessInfos != nil {
+                newsInfos = businessInfos!
+                newsListView.reloadData()
+            } else {
+                getNewsInfoFromServer()
+            }
+        }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
